@@ -420,7 +420,7 @@ func (r *UserSubscriptionRepo) CheckAccess(cxt context.Context, req *models.Subs
 		status.Status,
 	)
 
-	if status.Status == "ACTIVE" {
+	if status.Status == "ACTIVE" || status.Status == "FREE_TRIAL" {
 		status.Send_notification = true
 	}
 	return status.Send_notification, nil
